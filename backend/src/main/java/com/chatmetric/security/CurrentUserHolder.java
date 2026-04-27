@@ -1,0 +1,20 @@
+package com.chatmetric.security;
+
+public final class CurrentUserHolder {
+  private static final ThreadLocal<CurrentUser> TL = new ThreadLocal<>();
+
+  private CurrentUserHolder() {}
+
+  public static void set(CurrentUser user) {
+    TL.set(user);
+  }
+
+  public static CurrentUser get() {
+    return TL.get();
+  }
+
+  public static void clear() {
+    TL.remove();
+  }
+}
+
